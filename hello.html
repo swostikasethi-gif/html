@@ -99,13 +99,13 @@ body {
 // CREATE FLOATING CIRCLES
 for (let i = 0; i < 40; i++) {
   let circle = document.createElement("div");
-  rectangle.className = "circle";
+  circle.className = "circle";
   let size = Math.random() * 120 + 20;
-  rectangle.style.width = size + "px";
-  rectangle.style.height = size + "px";
-  rectangle.style.left = Math.random() * 100 + "vw";
-  rectangle.style.animationDuration = Math.random() * 20 + 10 + "s";
-  document.body.appendChild(rectangle);
+  circle.style.width = size + "px";
+  circle.style.height = size + "px";
+  circle.style.left = Math.random() * 100 + "vw";
+  circle.style.animationDuration = Math.random() * 20 + 10 + "s";
+  document.body.appendChild(circle);
 }
 
 // CREATE SPARKLES
