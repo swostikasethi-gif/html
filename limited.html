@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Beautiful Animated Background</title>
+
+<style>
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY */
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(270deg,
+    #ff0080,
+    #7928ca,
+    #2af598,
+    #00c6ff,
+    #ffcc70
+  );
+  background-size: 1000% 1000%;
+  animation: gradientMove 18s ease infinite;
+}
+
+/* GRADIENT ANIMATION */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* FLOATING CIRCLES */
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(110vh) scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(-10vh) scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* SPARKLES */
+.sparkle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 15px white;
+  animation: sparkle 2s infinite alternate;
+}
+
+@keyframes sparkle {
+  from { opacity: 0.2; transform: scale(0.6); }
+  to { opacity: 1; transform: scale(1.4); }
+}
+
+/* CENTER TEXT */
+.center-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 0 25px rgba(255,255,255,0.8);
+  animation: glow 3s infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 15px #fff; }
+  to { text-shadow: 0 0 40px #ffeb3b; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="center-text">✨ Beautiful World ✨</div>
+
+<script>
+// CREATE FLOATING CIRCLES
+for (let i = 0; i < 40; i++) {
+  let circle = document.createElement("div");
+  circle.className = "circle";
+  let size = Math.random() * 120 + 20;
+  circle.style.width = size + "px";
+  circle.style.height = size + "px";
+  circle.style.left = Math.random() * 100 + "vw";
+  circle.style.animationDuration = Math.random() * 20 + 10 + "s";
+  document.body.appendChild(circle);
+}
+
+// CREATE SPARKLES
+for (let i = 0; i < 80; i++) {
+  let sparkle = document.createElement("div");
+  sparkle.className = "sparkle";
+  sparkle.style.top = Math.random() * 100 + "vh";
+  sparkle.style.left = Math.random() * 100 + "vw";
+  sparkle.style.animationDelay = Math.random() * 2 + "s";
+  document.body.appendChild(sparkle);
+}
+</script>
+
+</body>
+</html>
